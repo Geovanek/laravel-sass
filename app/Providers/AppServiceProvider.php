@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Providers;
 
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
      */
     private function setupLogViewer(): void
     {
-        LogViewer::auth(fn($request) => $request->auth()->isAdmin());
+        LogViewer::auth(fn ($request) => $request->auth()->isAdmin());
     }
 
     private function configModels(): void
@@ -77,7 +77,7 @@ class AppServiceProvider extends ServiceProvider
         foreach (Can::cases() as $permission) {
             Gate::define(
                 ability: $permission->value,
-                callback: fn($user): mixed => $user
+                callback: fn ($user): mixed => $user
                     ->permission()
                     ->whereName($permission->value)
                     ->exists()
