@@ -12,6 +12,7 @@
 
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        <tallstackui:script />
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @else
             <style>
