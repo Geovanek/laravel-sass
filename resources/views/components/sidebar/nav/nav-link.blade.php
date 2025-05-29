@@ -1,17 +1,22 @@
 @props([
-    'tab',
+    'route',
     'text',
     'icon' => 'slash',
     'badgeValue' => null,
     'badgeColor' => 'bg-green-400',
 ])
 
-<li @click="$store.sidebar.active = '{{ $tab }}' "
+@php
+    $active = request()->routeIs($route);
+@endphp
+
+<a {{ $attributes }}
     x-data="tooltip"
     x-on:mouseover="show = true"
     x-on:mouseleave="show = false"
-    class="relative flex justify-between items-center text-gray-700 dark:text-gray-400 hover:text-gray-950 hover:dark:text-gray-200 hover:bg-gray-300 hover:dark:bg-gray-700 rounded-md p-2 cursor-pointer"
-    x-bind:class="{'justify-start space-x-2': $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full,'text-gray700 dark:text-gray-200 bg-gray-50 dark:bg-gray-700':$store.sidebar.active == '{{ $tab }}','text-gray-300 ':$store.sidebar.active != '{{ $tab }}'}">
+    class="relative flex justify-between items-center text-gray-700 dark:text-gray-400 hover:text-gray-950 hover:dark:text-gray-200 hover:bg-gray-300 hover:dark:bg-gray-700 rounded-md p-2 cursor-pointer {{ $active ? 'text-gray-700 dark:text-gray-200 bg-gray-50 dark:bg-gray-700' : '' }}"
+    x-bind:class="{'justify-start space-x-2': $store.sidebar.full, 'sm:justify-center':!$store.sidebar.full}">
+
     <div class="flex items-center" x-bind:class="{'space-x-2': $store.sidebar.full}">
         <x-icon name="{{ $icon }}" class="h-5 w-5" x-bind:class="{'w-6 h-6': !$store.sidebar.full}"/>
 
@@ -25,4 +30,4 @@
             {{ $badgeValue }}
         </span>
     @endif
-</li>
+</a>
