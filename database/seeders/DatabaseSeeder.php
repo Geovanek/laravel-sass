@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesPermissionsSeeder::class);
 
         User::factory()->create([
-            'name'  => 'Test User',
+            'name'  => 'Rhykos',
             'email' => 'test@example.com',
         ]);
 
