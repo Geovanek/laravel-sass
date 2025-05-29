@@ -29,7 +29,9 @@
     <div class="flex flex-col h-full fixed sm:relative bg-gray-200 dark:bg-gray-800" x-bind:class="{'w-64':$store.sidebar.full, 'w-64 sm:w-20':!$store.sidebar.full,'top-0 left-0':$store.sidebar.navOpen,'top-0 -left-64 sm:left-0':!$store.sidebar.navOpen}">
         <x-sidebar.nav />
 
-        <x-sidebar.user-profile />
+        @auth
+            <x-sidebar.user-profile />
+        @endauth
     </div>
 </aside>
 

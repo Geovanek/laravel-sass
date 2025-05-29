@@ -14,14 +14,13 @@
                 required 
             />
 
-            <x-input label="{{ __('Password') }}" 
-                wire:model="password" 
-                type="password" 
-                icon="key"
-                class="block w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300"
-                placeholder="{{ __('Enter your password') }}" 
-                required 
+            <x-password wire:model="password"
+                label="{{ __('Password') }}" 
+                hint="{{ __('Insert your best password') }}" 
+                class="block w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" 
+                required
             />
+
         </div>
 
         <div class="flex items-center justify-between">

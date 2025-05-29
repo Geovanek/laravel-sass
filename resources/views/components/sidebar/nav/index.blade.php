@@ -1,10 +1,10 @@
-<nav class="flex flex-col overflow-y-auto transition-all duration-300 space-y-2">
+<nav class="flex flex-col transition-all duration-300 space-y-2">
 
     <div class="flex items-center justify-center py-2">
         <x-application-logo x-bind:class="$store.sidebar.full ? 'w-13s h-13' : 'w-12 h-12'" />
 
-        <span class="text-gray-900 dark:text-gray-200 font-rubik-dirt py-4"
-            x-bind:class="$store.sidebar.full ? 'text-3xl px-2' : 'hidden'">   
+        <span class="text-gray-900 dark:text-gray-200 font-rubik-dirt py-3"
+            x-bind:class="$store.sidebar.full ? 'text-2xl px-2' : 'hidden'">   
             {{ config('app.name') }}
         </span>
     </div>
