@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Livewire\Auth;
 
@@ -22,10 +22,6 @@ class TwoFa extends Component
 
     public function mount(): null | RedirectResponse | Redirector
     {
-        if (! Auth::check()) {
-            return redirect()->route('login');
-        }
-
         if (session()->has('2fa:auth')) {
             return redirect()->route('dashboard');
         }

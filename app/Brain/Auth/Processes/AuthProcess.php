@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Brain\Auth\Processes;
 
-use App\Brain\Auth\Tasks\Check2FaCode;
 use App\Brain\Auth\Tasks\Generate2FaCode;
 use App\Brain\Auth\Tasks\Login;
 use App\Brain\Auth\Tasks\LogLogin;
@@ -16,6 +15,5 @@ class AuthProcess extends Process
         Login::class,
         LogLogin::class,
         Generate2FaCode::class,
-        Check2FaCode::class,
     ];
 }
