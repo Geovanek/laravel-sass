@@ -1,11 +1,12 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Livewire\Auth;
 
 use App\Brain\Auth\Tasks\SendMagicLink;
 use Illuminate\View\View;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -26,6 +27,7 @@ class Login extends Component
         $this->showMessage = true;
     }
 
+    #[Layout('components.layouts.guest')]
     public function render(): View
     {
         return view('livewire.auth.login');
