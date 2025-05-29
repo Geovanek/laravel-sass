@@ -4,27 +4,26 @@ declare(strict_types = 1);
 
 namespace App\Livewire\Auth;
 
-use App\Brain\Auth\Processes\AuthProcess;
-use App\Livewire\Pages\Dashboard;
+use App\Brain\Auth\Tasks\SendMagicLink;
 use Illuminate\View\View;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Login extends Component
 {
-    public string $email;
+    #[Validate('required', message: 'Email is required', translate: true)]
+    #[Validate('email', message: 'Email is invalid', translate: true)]
+    public string $email = '';
 
-    public string $password;
-
-    public bool $remember = false;
+    public bool $showMessage = false;
 
     public function login(): void
     {
-        AuthProcess::dispatch([
-            'email'    => $this->email,
-            'password' => $this->password,
+        SendMagicLink::dispatch([
+            'email' => $this->email,
         ]);
 
-        $this->redirect(Dashboard::class);
+        $this->showMessage = true;
     }
 
     public function render(): View

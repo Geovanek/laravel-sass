@@ -2,11 +2,10 @@
 
 declare(strict_types = 1);
 
-use App\Http\Middleware\Check2FaSession;
+use App\Http\Controllers\Auth\MagicLinkController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\PasswordRequest;
 use App\Livewire\Auth\Register;
-use App\Livewire\Auth\TwoFa;
 use App\Livewire\Pages;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 Route::get('/password-reset', PasswordRequest::class)->name('password.request');
-Route::get('/2fa', TwoFa::class)->name('2fa.index');
+Route::get('/2fa/magic-link/{token}', MagicLinkController::class)->name('2fa.magic-link');
 Route::match(['get', 'post'], '/logout', function (): RedirectResponse {
     session()->invalidate();
     session()->flush();
@@ -33,8 +32,8 @@ Route::match(['get', 'post'], '/logout', function (): RedirectResponse {
 #region Authenticated Routes
 //################################################################################
 
-Route::middleware(['auth', Check2FaSession::class])->group(function (): void {
-    Route::get('/', Pages\Dashboard::class)->name('dashboard');
+Route::middleware(['auth'])->group(function (): void {
+    Route::get('/dashboard', Pages\Dashboard::class)->name('dashboard');
     Route::get('/users', Pages\Users::class)->name('users');
 });
 

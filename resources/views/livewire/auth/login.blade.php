@@ -14,22 +14,15 @@
                 required 
             />
 
-            <x-password wire:model="password"
-                label="{{ __('Password') }}" 
-                hint="{{ __('Insert your best password') }}" 
-                class="block w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300" 
-                required
-            />
-
+            @if ($showMessage)
+                <x-alert text="{{ __('You will receive an email with a link to login.') }}" 
+                    icon="exclamation-triangle" 
+                    color="green" 
+                    outline />
+            @endif
         </div>
 
         <div class="flex items-center justify-between">
-            <x-checkbox 
-                label="{{ __('Remember me') }}" 
-                wire:model="remember" 
-                class="text-sm dark:text-gray-300" 
-            />
-
             <x-link href="{{ route('password.request') }}"
                 class="text-sm font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
                 {{ __('Forgot your password?') }}
