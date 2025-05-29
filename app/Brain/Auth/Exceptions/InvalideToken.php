@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Brain\Auth\Exceptions\InvalideToken;
+namespace App\Brain\Auth\Exceptions;
 
 use Exception;
 

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Brain\Auth\Tasks;
 
-use App\Brain\Auth\Exceptions\InvalideToken\InvalideToken;
+use App\Brain\Auth\Exceptions\InvalideToken;
 use Brain\Task;
 use Illuminate\Support\Facades\Log;
 

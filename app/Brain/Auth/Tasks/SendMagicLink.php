@@ -37,7 +37,7 @@ class SendMagicLink extends Task
         session()->put('user_id', $user->id);
 
         $link = URL::temporarySignedRoute(
-            name: '2fa.magic-link',
+            name: '2fa.magic.link',
             expiration: now()->addMinutes(30),
             parameters: [
                 'token' => $token,
