@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Brain\Auth\Tasks;
 
-use App\Models\User;
 use Brain\Task;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -15,11 +14,12 @@ use Illuminate\Validation\ValidationException;
  * @property-read string $email
  * @property-read string $password
  *
- * @property User $user
+ * @property \App\Models\User $user
+ * @property string $ip
  */
 class Login extends Task
 {
-    public function handle(): Self
+    public function handle(): self
     {
         if (! Auth::attempt(
             credentials: [
@@ -34,6 +34,8 @@ class Login extends Task
         }
 
         $this->user = Auth::user();
+
+        $this->ip = request()->ip();
 
         return $this;
     }

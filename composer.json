@@ -14,9 +14,11 @@
         "laravel/pint": "^1.22",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
+        "livewire/livewire": "^3.6",
         "opcodesio/log-viewer": "^3.17",
         "owen-it/laravel-auditing": "^14.0",
-        "r2luna/brain": "^1.2"
+        "r2luna/brain": "^1.2",
+        "tallstackui/tallstackui": "2.8.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
