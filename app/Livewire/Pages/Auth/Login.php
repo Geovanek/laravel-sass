@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Pages\Auth;
 
 use App\Brain\Auth\Tasks\SendMagicLink;
 use Illuminate\View\View;
@@ -30,6 +30,6 @@ class Login extends Component
     #[Layout('components.layouts.guest')]
     public function render(): View
     {
-        return view('livewire.auth.login');
+        return view('livewire.pages.auth.login');
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Pages\Auth;
 
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
@@ -13,6 +13,6 @@ class PasswordRequest extends Component
     #[Layout('components.layouts.guest')]
     public function render(): View
     {
-        return view('livewire.auth.password-request');
+        return view('livewire.pages.auth.password-request');
     }
 }
